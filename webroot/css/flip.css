@@ -1,0 +1,19 @@
+.flip {
+	position: relative;
+}
+.flip-panel {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	transform-style: preserve-3d;
+	transition: all 0.4s ease-in-out 0s;
+	transform: perspective(800px) rotateY(180deg);
+
+	opacity: 0;
+}
+
+.flip-panel.flip-active {
+	transform: perspective(800px) rotateY(0deg);
+	opacity: 1.0;
+}

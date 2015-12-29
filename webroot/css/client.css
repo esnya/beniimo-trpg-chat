@@ -1,0 +1,363 @@
+#NewRoom {
+    display: none;
+}
+[data-mode=list] #NewRoom {
+    display: block;
+}
+
+#Logout, #AddCharacter {
+    display: none;
+}
+[data-mode=room] #Logout,
+[data-mode=room] #AddCharacter {
+    display: block;
+}
+
+#AddNPC,
+#EditRoom,
+#EditMap {
+	display: none;
+}
+[data-mode=room][data-joinmode=master] #AddNPC,
+[data-mode=room][data-joinmode=master] #EditRoom,
+[data-mode=room][data-joinmode=master] #EditMap {
+	display: block;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	padding-top: 50px;
+}
+
+.navbar {
+	margin-bottom: 0;
+}
+
+.chat-room {
+	border-bottom: 1px solid #e7e7e7;
+	margin: 0;
+	padding: 2.5px;
+}
+
+.chat-room:nth-child(even) {
+	background-color: #f8f8f8;
+}
+
+#Chat,
+.pages, 
+.page {
+    height: 100%;
+}
+
+.pages {
+	position: relative;
+}
+
+.page {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+    max-height: 100%;
+
+    /*
+	transform-style: flat;
+    */
+	transition: all 0.5s ease-in-out 0s;
+}
+
+#ListPage {
+	/*transform: translateX(-150%);*/
+	margin-left: -150%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+[data-mode=list] #ListPage {
+	/*transform: none; */
+	margin-left: 0;
+}
+
+#RoomPage {
+	/*transform: translateX(150%);*/
+	margin-left: 150%;
+}
+[data-mode=room] #RoomPage {
+	transform: none;
+	margin-left: 0;
+}
+
+#RoomPage {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    align-items: stretch;
+
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+
+    height: 100%;
+    max-height: 100%;
+}
+
+.chat-room [data-field=name] {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#CharacterInstanceListContainer {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    -moz-flex: 0 0 auto;
+
+    max-height: 25%;
+}
+#CharacterInstanceListContainer .table-responsive {
+	margin-bottom: 0;
+}
+
+#CharacterInstanceList {
+    margin-bottom: 0;
+}
+
+#CharacterInstanceList .glyphicon-chevron-right{
+	display: none;
+}
+#CharacterInstanceList.list-hidden .glyphicon-chevron-right{
+	display: inline-block;
+}
+#CharacterInstanceList.list-hidden .glyphicon-chevron-down{
+	display: none;
+}
+#CharacterInstanceList tbody {
+	transition: all 0.5s ease-in-out 0s;
+}
+#CharacterInstanceList.list-hidden tbody {
+	display: none;
+}
+
+#MapContainer {
+	overflow: hidden;
+    flex: 0 0 40%;
+    -webkit-flex: 0 0 40%;
+    -moz-flex: 0 0 40%;
+
+
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    align-items: stretch;
+
+    height: 100%;
+}
+
+#LeftImage, #RightImage {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+
+    flex: 0 0 18%;
+    -webkit-flex: 0 0 18%;
+    -moz-flex: 0 0 18%;
+}
+#RightImage {
+	opacity: 0.5;
+}
+
+#MapInnerContainer {
+    flex: 1 0 auto;
+    -moz-flex: 1 0 auto;
+    -webkit-flex: 1 0 auto;
+
+    display: flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+}
+
+#MapToolbar {
+    flex: 0 0 auto;
+    -moz-flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+}
+
+#Map {
+    flex: 1 1 auto;
+    -moz-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+
+    overflow: scroll;
+	padding-right: 64px;
+	padding-bottom: 64px;
+}
+#MapCharacters {
+    position: relative;
+    max-height: 0;
+}
+#MapCharacters .map-character {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 10;
+
+    border: 1px solid gray;
+    background-color: rgba(1.0, 1.0, 1.0, 0.8);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+
+    box-shadow: inset 0 0 1em skyblue;
+
+    text-align: center;
+    font-size: small;
+
+    overflow: hidden;
+
+    transition: all 0.4s ease-in-out 0s;
+}
+#MapCharacters .map-character > [data-field=name] {
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 5px white;
+}
+#MapTiles {
+    position: relative;
+    display: table;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#MapTiles .map-row {
+    display: table-row;
+}
+#MapTiles .map-tile {
+	display: table-cell;
+	border-right: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
+	overflow: hidden;
+
+    text-align: center;
+	font-size: small;
+    color: gray;
+
+    transition: all 0.4s ease-in-out 0s;
+}
+#MapTiles .map-row:first-child .map-tile {
+	border-top: 1px solid lightgray;
+}
+#MapTiles .map-row .map-tile:first-child  {
+	border-left: 1px solid lightgray;
+}
+
+#ChatMessageList {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    -moz-flex: 1 1 auto;
+}
+
+#ChatMessageForm {
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
+    -moz-flex: 0 0 auto;
+}
+
+.chat-message-system{
+	color: lightgray;
+}
+
+.chat-message[data-type="2"] {
+	color: darkred;
+}
+
+.chat-message div[data-field="name"] {
+	overflow: hidden;
+	font-size: small;
+	vertical-align: bottom;
+}
+
+.chat-message-writing .glyphicon-pencil {
+    margin-right: 10px;
+
+    animation-duration: 0.5s;
+    animation-name: seesaw;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    -moz-animation-duration: 0.5s;
+    -moz-animation-name: seesaw;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-name: seesaw;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+@keyframes seesaw {
+    from {
+        transform: rotate(30deg);
+    }
+
+    to {
+        transform: rotate(-30deg);
+    }
+}
+@-moz-keyframes seesaw {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-45deg);
+    }
+}
+@-webkit-keyframes seesaw {
+    from {
+        transform: rotate(45deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.acordion-button {
+	height: 10px;
+	background: #888;
+	width: 100%;
+}
+
+#ChatMessageFormLine1 {
+	display: flex;
+	display: -moz-flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	-moz-flex-direction: row;
+	-webkit-flex-direction: row;
+}
+
+#ChatMessageFormLine1 .form-control,
+#ChatMessageFormLine1 > div {
+	flex: 0 0 auto;
+	-moz-flex: 0 0 auto;
+	-webkit-flex: 0 0 auto;
+
+	width: auto;
+}
+
+#ChatMessageFormLine1 > #ChatMessageMessage {
+	flex: 1 1 auto;
+	-moz-flex: 1 1 auto;
+	-webkit-flex: 1 1 auto;
+
+	min-width: 25%;
+}

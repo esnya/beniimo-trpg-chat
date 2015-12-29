@@ -1,0 +1,106 @@
+html {
+}
+
+body {
+}
+
+#chat {
+}
+
+#chat:not([data-mode=index]) .chat-visible-index,
+#chat:not([data-mode=view]) .chat-visible-view,
+#chat:not([data-master=true]) .chat-visible-master {
+}
+
+.chat-template {
+}
+
+#chat-pages {
+}
+
+.chat-page {
+	-webkit-backface-visibility: hidden;
+}
+
+#chat:not([data-mode=index]) #chat-index,
+#chat:not([data-mode=view]) #chat-view {
+	-webkit-transform: rotateY(180deg);
+}
+
+#chat-index {
+}
+
+#chat-index .chat-room {
+	-webkit-align-items: stretch;
+	display: -webkit-flex;
+}
+#chat-index .chat-room:nth-child(even) {
+}
+#chat-index .chat-room .chat-room-informations {
+	-webkit-flex: 1 1 auto;
+}
+#chat-index .chat-room .chat-room-informations h1 {
+}
+#chat-index .chat-room .chat-room-toggle {
+	display: -webkit-flex;
+    -webkit-align-items: center;
+	-webkit-flex: 0 0 auto;
+}
+#chat-index .chat-room .chat-room-toggle span {
+}
+#chat-index .chat-room .chat-room-buttons {
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-flex: 0 0 auto;
+}
+#chat-index .chat-room:nth-child(even) .chat-room-buttons {
+}
+#chat-index .chat-room:focus .chat-room-buttons .btn,
+#chat-index .chat-room .chat-room-buttons .btn:focus ,
+#chat-index .chat-room .chat-room-buttons .btn:focus + .btn {
+}
+#chat-index .chat-room .chat-room-buttons .btn {
+    -webkit-flex: 1 1 auto;
+}
+
+#chat-view {
+	display: -webkit-flex;
+}
+
+#chat-view-column-main {
+	-webkit-flex: 1 1 auto;
+	display: -webkit-flex;
+	-webkit-flex-direction: column;
+	-webkit-align-items: stretch;
+}
+
+#chat-view-column-side {
+}
+
+#chat-view-map-tabs {
+}
+
+#chat-view-messages {
+	-webkit-flex: 1 1 auto;
+}
+
+#chat-view-message-form {
+	-webkit-flex: 0 0 auto;
+	display: -webkit-flex;
+}
+
+#chat-view-message-form-message {
+	-webkit-flex: 1 1 auto;
+}
+
+#chat-view-message-form-setting,
+#chat-view-message-form-submit {
+	-webkit-flex: 0 0 auto;
+}
+
+@-webkit-keyframes slidein {
+    from {
+        margin-top: 100%;
+        height: 300%
+    }
+}

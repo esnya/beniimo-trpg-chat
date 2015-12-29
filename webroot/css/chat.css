@@ -1,0 +1,162 @@
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	padding-top: 50px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#chat {
+	width: 100%;
+	height: 100%;
+}
+
+#chat:not([data-mode=index]) .chat-visible-index,
+#chat:not([data-mode=view]) .chat-visible-view,
+#chat:not([data-master=true]) .chat-visible-master {
+	display: none;
+}
+
+.chat-template {
+	display: none !important;
+}
+
+#chat-pages {
+	height: 100%;
+	margin: 0;
+	position: relative;
+	width: 100%;
+}
+
+.chat-page {
+	backface-visibility: hidden;
+	height: 100%;
+	left: 0;
+	max-height: 100%;
+	position: absolute;
+	top: 0;
+	transition-duration: 0.6s;
+    transition-property: transform;
+	width: 100%;
+}
+
+#chat:not([data-mode=index]) #chat-index,
+#chat:not([data-mode=view]) #chat-view {
+	transform: rotateY(180deg);
+}
+
+#chat-index {
+	overflow-y: scroll;
+}
+
+#chat-index .chat-room {
+	align-items: stretch;
+	border-bottom: solid 1px #e7e7e7;
+	display: flex;
+	overflow: hidden;
+	padding-right: 0;
+    animation-duration: 0.6s;
+    animation-name: slidein;
+}
+#chat-index .chat-room:nth-child(even) {
+	background-color: #f8f8f8;
+}
+#chat-index .chat-room .chat-room-informations {
+	flex: 1 1 auto;
+}
+#chat-index .chat-room .chat-room-informations h1 {
+	font-size: x-large;
+	margin-top: 10px;
+	overflow: hidden;
+}
+#chat-index .chat-room .chat-room-toggle {
+	border-right: solid 1px #e7e7e7;
+	display: flex;
+    align-items: center;
+	flex: 0 0 auto;
+	padding: 0 10px 0;
+}
+#chat-index .chat-room .chat-room-toggle span {
+    display: inline-block;
+	text-align: center;
+}
+#chat-index .chat-room .chat-room-buttons {
+	background: white;
+	border-left: solid 1px #e7e7e7;
+	display: flex;
+	flex-direction: column;
+	flex: 0 0 auto;
+	text-align: center;
+	z-index: 1;
+}
+#chat-index .chat-room:nth-child(even) .chat-room-buttons {
+	background-color: #f8f8f8;
+}
+#chat-index .chat-room:focus .chat-room-buttons .btn,
+#chat-index .chat-room .chat-room-buttons .btn:focus ,
+#chat-index .chat-room .chat-room-buttons .btn:focus + .btn {
+    margin-left: -5em;
+	margin-right: 0;
+}
+#chat-index .chat-room .chat-room-buttons .btn {
+	transition-duration: 0.4s;
+    transition-property: margin;
+    flex: 1 1 auto;
+    border-radius: 0;
+	margin-right: -5em;
+}
+
+#chat-view {
+	display: flex;
+}
+
+#chat-view-column-main {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+}
+
+#chat-view-column-side {
+	width: 20%;
+	resize: horizontal;
+	overflow: auto;
+}
+
+#chat-view-map-tabs {
+	height: 40%;
+	resize: vertical;
+	overflow: auto;
+}
+
+#chat-view-messages {
+	flex: 1 1 auto;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#chat-view-message-form {
+	flex: 0 0 auto;
+	display: flex;
+}
+
+#chat-view-message-form-message {
+	flex: 1 1 auto;
+}
+
+#chat-view-message-form-setting,
+#chat-view-message-form-submit {
+	flex: 0 0 auto;
+	width: auto;
+}
+
+@keyframes slidein {
+    from {
+        margin-top: 100%;
+        height: 300%
+    }
+}
